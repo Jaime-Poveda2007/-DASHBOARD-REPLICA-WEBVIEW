@@ -32,6 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const navLinks = [
     { href: '/feed', label: 'Inicio', icon: '🏠' },
     { href: '/user', label: 'Perfil', icon: '👤' },
+    ...(user?.email === 'kevingabrielgonzalez1234@gmail.com' ? [{ href: '/admin', label: 'Admin', icon: '🛡️' }] : []),
   ];
 
   return (
