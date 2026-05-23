@@ -30,8 +30,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   }, []);
 
   const navLinks = [
-    { href: '/feed', label: 'Inicio', icon: '🏠' },
-    { href: '/user', label: 'Perfil', icon: '👤' },
+    { href: '/feed', label: '', icon: '' },
+    { href: '/user', label: '', icon: '' },
   ];
 
   return (
