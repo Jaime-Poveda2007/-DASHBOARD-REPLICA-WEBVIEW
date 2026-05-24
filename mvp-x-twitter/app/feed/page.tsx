@@ -138,14 +138,14 @@ export default function FeedPage() {
   return (
     <div style={{ background: '#000', minHeight: '100vh', color: '#fff', maxWidth: 480, margin: '0 auto', position: 'relative' }}>
 
-      {/* SIDEBAR OVERLAY */}
+   
       {sidebarOpen && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 50 }}>
-          {/* backdrop */}
+     
           <div onClick={() => setSidebarOpen(false)} style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.15)' }} />
-          {/* drawer */}
+      
           <div style={{ position: 'absolute', top: 0, left: 0, width: 280, height: '100%', background: '#000', padding: '24px 20px', overflowY: 'auto', zIndex: 51 }}>
-            {/* Avatar + nombre */}
+         
             <div style={{ marginBottom: 20 }}>
               <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#1d9bf0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 22, marginBottom: 10 }}>
                 {initials}
@@ -194,7 +194,7 @@ export default function FeedPage() {
         </div>
       )}
 
-      {/* MODAL COMPOSER */}
+   
       {showComposer && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 60, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', paddingTop: 60 }}>
           <div style={{ background: '#000', border: '1px solid #2f3336', borderRadius: 16, width: '90%', maxWidth: 440, padding: '16px' }}>
@@ -224,25 +224,25 @@ export default function FeedPage() {
         </div>
       )}
 
-      {/* TOP BAR */}
+    
       <div style={{ position: 'sticky', top: 0, zIndex: 40, background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(12px)' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px' }}>
-          {/* Avatar (abre sidebar) */}
+        
           <button onClick={() => setSidebarOpen(true)}
             style={{ width: 36, height: 36, borderRadius: '50%', background: '#1d9bf0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, border: 'none', cursor: 'pointer', color: '#fff', fontSize: 16 }}>
             {initials}
           </button>
 
-          {/* Logo X */}
+         
           <svg viewBox="0 0 24 24" width={26} height={26} fill="white">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
 
-          {/* Placeholder derecha */}
+    
           <div style={{ width: 36 }} />
         </div>
 
-        {/* Tabs Para ti / Siguiendo */}
+     
         <div style={{ display: 'flex', borderBottom: '1px solid #2f3336' }}>
           {(['foryou', 'following'] as const).map(tab => (
             <button key={tab} onClick={() => setActiveTab(tab)} style={{
@@ -258,7 +258,7 @@ export default function FeedPage() {
         </div>
       </div>
 
-      {/* TWEET LIST */}
+   
       <div style={{ paddingBottom: 80 }}>
         {displayedTweets.map(tweet => (
           <div key={tweet.id} style={{ padding: '12px 16px', borderBottom: '1px solid #2f3336', display: 'flex', gap: 10 }}>
@@ -268,7 +268,7 @@ export default function FeedPage() {
             </div>
 
             <div style={{ flex: 1, minWidth: 0 }}>
-              {/* Header tweet */}
+          
               <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>
                 <span style={{ fontWeight: 700, fontSize: 15 }}>{tweet.profiles?.full_name}</span>
                 <span style={{ color: '#71767b', fontSize: 14 }}>@{tweet.profiles?.username}</span>
@@ -287,12 +287,12 @@ export default function FeedPage() {
                 )}
               </div>
 
-              {/* Contenido */}
+        
               <p style={{ margin: '4px 0 10px', fontSize: 15, lineHeight: 1.5, wordBreak: 'break-word' }}>{tweet.content}</p>
 
-              {/* Acciones */}
+        
               <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 280 }}>
-                {/* Responder */}
+             
                 <button style={{ background: 'none', border: 'none', color: '#71767b', fontSize: 13, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 5 }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#71767b" strokeWidth="1.8">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -300,7 +300,6 @@ export default function FeedPage() {
                   <span>Responder</span>
                 </button>
 
-                {/* Retweet */}
                 <button style={{ background: 'none', border: 'none', color: '#71767b', fontSize: 13, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 5 }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#71767b" strokeWidth="1.8">
                     <path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
@@ -309,7 +308,7 @@ export default function FeedPage() {
                   <span>{tweet.retweets_count ?? 0}</span>
                 </button>
 
-                {/* Like */}
+          
                 <button onClick={() => handleLike(tweet)}
                   style={{ background: 'none', border: 'none', color: likedSet.has(tweet.id) ? '#f91880' : '#71767b', fontSize: 13, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 5 }}>
                   <svg width="18" height="18" viewBox="0 0 24 24"
@@ -325,7 +324,6 @@ export default function FeedPage() {
         ))}
       </div>
 
-      {/* BOTÓN + FLOTANTE */}
       <button onClick={() => setShowComposer(true)}
         style={{
           position: 'fixed', bottom: 80, right: 20,
@@ -339,7 +337,6 @@ export default function FeedPage() {
         +
       </button>
 
-      {/* BOTTOM NAV */}
 <div style={{
   position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)',
   width: '100%', maxWidth: 480,
@@ -348,35 +345,30 @@ export default function FeedPage() {
   padding: '10px 0 14px', zIndex: 40
 }}>
 
-  {/* Inicio — casa X */}
   <button onClick={() => router.push('/feed')} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}>
     <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
       <path d="M12 1.696L.622 9.833l1.04 1.52L3 10.48V19.5C3 20.881 4.119 22 5.5 22h4a1 1 0 0 0 1-1v-4.5h3V21a1 1 0 0 0 1 1h4c1.381 0 2.5-1.119 2.5-2.5V10.48l1.338.873 1.04-1.52L12 1.696zM17 20h-2v-4.5a1 1 0 0 0-1-1H10a1 1 0 0 0-1 1V20H7v-11.3l5-3.261 5 3.261V20z"/>
     </svg>
   </button>
 
-  {/* Buscar */}
   <button style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}>
     <svg width="26" height="26" viewBox="0 0 24 24" fill="#71767b">
       <path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.814 5.262l4.276 4.276-1.414 1.414-4.276-4.276C13.815 17.818 12 18.5 10.25 18.5c-4.694 0-8.5-3.806-8.5-8.5z"/>
     </svg>
   </button>
 
-  {/* Grok */}
   <button style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}>
     <svg width="26" height="26" viewBox="0 0 24 24" fill="#71767b">
       <path d="M16.5 5H13V3h3.5A4.5 4.5 0 0 1 21 7.5v3h-2v-3A2.5 2.5 0 0 0 16.5 5zM13 21h3.5a4.5 4.5 0 0 0 4.5-4.5v-3h-2v3a2.5 2.5 0 0 1-2.5 2.5H13v2zM3 16.5V19h2.5A4.5 4.5 0 0 0 10 14.5V11H8v3.5A2.5 2.5 0 0 1 5.5 17H3v-.5zM10 3H6.5A4.5 4.5 0 0 0 2 7.5V11h2V7.5A2.5 2.5 0 0 1 6.5 5H10V3z"/>
     </svg>
   </button>
 
-  {/* Notificaciones */}
   <button style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}>
     <svg width="26" height="26" viewBox="0 0 24 24" fill="#71767b">
       <path d="M11.996 2c-4.062 0-7.49 3.021-7.999 7.051L2.866 13H1v2h3.08l.194-1.534.027-.215.006-.07.846-5.83C5.56 5.079 8.145 4 11.996 4c3.838 0 6.42 1.072 6.877 3.351l.846 5.83.006.07.025.215L19.92 15H23v-2h-1.865l-1.132-7.876C19.486 4.92 16.151 2 11.996 2zM9 17a3 3 0 0 0 6 0H9z"/>
     </svg>
   </button>
 
-  {/* Mensajes */}
   <button style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}>
     <svg width="26" height="26" viewBox="0 0 24 24" fill="#71767b">
       <path d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v11c0 1.381-1.119 2.5-2.5 2.5h-8.5l-5.5 5v-5h-1c-1.381 0-2.5-1.119-2.5-2.5v-11zm4.5 9.5h11v-2H6.498v2zm0-4h11v-2H6.498v2zm0-4h11V5h-11v2z"/>
